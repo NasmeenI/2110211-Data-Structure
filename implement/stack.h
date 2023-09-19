@@ -46,7 +46,7 @@ namespace CP {
         }
       }
       
-      stack<T>& operator=(stack<T> other) {
+      stack<T>& operator=(stack<T> &other) {
         using std::swap;
         swap(this->mData, other.data);
         swap(this->mCap, other.mCap);

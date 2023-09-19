@@ -2,7 +2,6 @@
 #define _CP_VECTOR_INCLUDED_
 
 #include <iostream>
-
 namespace CP {
   template <typename T>
   class queue {
@@ -69,7 +68,7 @@ namespace CP {
       }
 
       const &T back() const {
-        return mData[(mFront + mSize - 1) % map];
+        return mData[(mFront + mSize - 1) % mCap];
       }
       
       void pop() {
