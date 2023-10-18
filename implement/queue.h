@@ -30,6 +30,7 @@ namespace CP {
       }
 
     public:
+    
       //-------------- constructor & copy operator ----------
       queue() : mData(new T[1]()), mCap(1),
                 mSize(0), mFront(0) { } 
