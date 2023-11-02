@@ -72,5 +72,6 @@
         "compare": "cpp",
         "concepts": "cpp",
         "charconv": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

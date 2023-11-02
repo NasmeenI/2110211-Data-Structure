@@ -24,29 +24,25 @@ class Song {
 
 };
 
-// template <typename T>
-// bool compare1(Song &a,Song &b) {
-//   if(a.artist == b.artist) return a.title < b.title;
-//   return a.artist < b.artist;
-// }
+struct Compare1 {
+  bool operator()(const Song &a, const Song &b) const {
+    if(a.artist != b.artist) return a.artist > b.artist;
+    else if(a.title != b.title) return a.title > b.title;
+    return a.count > b.count;
+  }
+};
 
-// template <typename T>
-// bool compare2(Song &a,Song &b) {
-//   if(a.count == b.count) return a.artist < b.artist;
-//   return a.count > b.count;
-// }
-
-class Compare1 {
-public:
-  bool operator()(Song &a, Song &b){
-    if(a.artist == b.artist) return a.title < b.title;
-    return a.artist < b.artist;
+struct Compare2 {
+  bool operator()(const Song &a, const Song &b) const {
+    if(a.count != b.count) return a.count < b.count;
+    else if(a.artist != b.artist) return a.artist > b.artist;
+    return a.title > b.title;
   }
 };
 
 //  you have to write something below this line 
 //  you *MIGHT* have to change the declaration of pq1 and pq2
-CP::priority_queue<Song, vector<Song>, Compare1> pq1;
-CP::priority_queue<Song, vector<Song>, Compare1> pq2;
+CP::priority_queue<Song, Compare1> pq1;
+CP::priority_queue<Song, Compare2> pq2;
 
 #endif

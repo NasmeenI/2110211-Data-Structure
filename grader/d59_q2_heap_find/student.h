@@ -9,24 +9,20 @@
 template <typename T,typename Comp >
 bool CP::priority_queue<T,Comp>::find(T k) const {
   //your code here
-  CP::priority_queue<T> temp1 = *this;
-  // while(temp.size()) {
-  //   if(temp.top() == k) return true;
-  //   temp.pop();
-  // }
-  // return false;
+  for(int i=0;i<mSize;i++) {
+    if(mData[i] == k) return true;
+  }
+  return false;
 }
 
 template <typename T,typename Comp >
 int CP::priority_queue<T,Comp>::find_level(T k) const {
   //your code here
-  // CP::priority_queue<T,Comp> temp = *this;
-  // while(temp.size()) {
-  //   if(temp.top() == k) return floor(log2(temp.size()));
-  //   temp.pop();
-  // }
-  // return -1;
+  int ans = -1;
+  for(int i=0;i<mSize;i++) {
+    if(mData[i] == k) ans = floor(log2(i+1));
+  }
+  return ans;
 }
 
 #endif
-
